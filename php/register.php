@@ -1,31 +1,41 @@
 <?php
+session_start();
+    include("connection.php");
+    include("functions.php");
 
-// Connect to the database
-$servername = "localhost:3307";
-$username = "root";
-$password = "usbw";
-$dbname = "agritech";
-$conn = new mysqli($servername, $username, $password, $dbname);
+    if($_SERVER['REQUEST_METHOD'] == "POST") {
+        //check if post from forms was used
 
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+        //get form data
+        $username = $_POST['User_Name'];
+        $email = $_POST['User_Email'];
+        $password = $_POST['User_Password'];
 
-// Get the user information from the registration form
-$name = $_POST['name'];
-$email = $_POST['email'];
-$password = $_POST['password'];
+        // Validate form data
+        if (empty($username) || empty($email) || empty($password)) {
+            echo "Please fill all the required fields!";
+        } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            echo "Invalid email format!";
+        } else {
+            $user_id = random_num(6);
 
-// Insert the user information into the database
-$sql = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
+            $query = $con->prepare("INSERT INTO users (User_ID, User_Name, User_Email, User_Password) VALUES (?, ?, ?, ?)");
+            $query->bind_param("ssss", $user_id, $username, $email, $password);
 
-if ($conn->query($sql) === TRUE) {
-  echo "Registration successful!";
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
-}
+            // Execute the statement
+            if ($query->execute()) {
+            // Display success message
+            echo "Registration successful!";
+            } else {
+            // Display error message
+            echo "Error: " . $query->error;
+            }
 
-$conn->close();
+            header("Location: /login/login.html");
+            die;
+
+        }
+    }
+
 
 ?>

@@ -101,20 +101,20 @@ nav a.active {
     top: 20px;
 }
 
-.register {
+.smalltext {
     font-size: .9em;
     color: white;
     text-align: center;
     margin: 25px 0 10px;
 }
 
-.register p a {
+.smalltext p a {
     text-decoration: none;
     color: white;
     font-weight: 500;
 }
 
-.register p a:hover {
+.smalltext p a:hover {
     text-decoration: underline;
 }
 
