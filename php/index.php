@@ -5,6 +5,6 @@ session_start();
 
     $user_data = check_login($con);
 
-    header("Location: /login/index.html");
+    header("Location: /CIS-290-Project/index.html");
     die;
 ?>

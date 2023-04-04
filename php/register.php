@@ -31,7 +31,7 @@ session_start();
             echo "Error: " . $query->error;
             }
 
-            header("Location: /login/login.html");
+            header("Location: /CIS-290-Project/login.html");
             die;
 
         }

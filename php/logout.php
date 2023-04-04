@@ -6,5 +6,5 @@ if(isset($_SESSION['user_id'])) {
     unset($_SESSION['user_id']);
 }
 
-header("Location: /login/login.html");
+header("Location: /CIS-290-Project/login.html");
 die;

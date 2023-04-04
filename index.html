@@ -2,13 +2,33 @@
 <html>
 <head>
     <title>bullshit</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.css" />
 </head>
 <body>
-    <a href="php/logout.php">Logout</a>
-    <h1>this is index page</h1>
-    <br>
+    <header>
+        <!-- As a link -->
+        <nav class="navbar navbar-light bg-light">
+            <a class="navbar-brand" href="#">Navbar</a>
+        </nav>
+  
+        <!-- As a heading -->
+        <nav class="navbar navbar-light bg-light">
+            <span class="navbar-brand mb-0 h1">Navbar</span>
+        </nav>
+    </header>
 
-    <!--doesnt fuckuing workdorgn;rbdls.gkbs might remove-->
-    hello <?php echo isset($user_data['User_Email']) ? $user_data['User_Email'] : ''; ?>
+    <main>
+        <a href="php/logout.php">Logout</a>
+        <h1>this is index page</h1>
+        <br>
+
+        <!--doesnt fuckuing workdorgn;rbdls.gkbs might remove-->
+        hello <?php echo isset($user_data['User_Email']) ? $user_data['User_Email'] : ''; ?>
+    </main>
+
+    <script src="js/bootstrap.bundle.js"> </script>
+    
 </body>
 </html>

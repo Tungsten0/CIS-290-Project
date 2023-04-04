@@ -19,7 +19,7 @@ function check_login($con)
         }
 
         // redirect to login
-        header("Location: /login/login.html");
+        header("Location: /CIS-290-Project/login.html");
         die;
     }
 }
