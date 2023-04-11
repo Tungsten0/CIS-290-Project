@@ -1,40 +1,173 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>bullshit</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/bootstrap.css" />
+  <title>bullshit</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.css" />
 </head>
 <body>
     <header>
-        <div class="container-fluid">
-            <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
-              <div class="col-md-3 mb-2 mb-md-0">
-                <img src="media/logo.png" alt="logo" height="50" width="125">
-              </div>
-        
-              <div class="col-md-4 text-end">
-                <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="index.html" class="nav-link px-2 link-secondary">Home</a></li>
-                    <li><a href="about.html" class="nav-link px-2">About</a></li>
-                    <li><a href="contact.html" class="nav-link px-2">Contact Us</a></li>
-                    <li><button type="button" class="btn btn-outline-primary me-2"><a href="php/logout.php" 
-                        style="text-decoration: none; color: black;">Logout</a></button></li>
-                  </ul>
-                
-              </div>
-            </header>
-          </div>
-  
+      <style>
+        .homenav {
+          position: fixed;
+          top: 0;
+          width: 100%;
+        }
+        .back {
+          background-image: url('/CIS-290-Project/media/background.png');
+          background-repeat: no-repeat;
+          background-position: top right;
+          height: 325px;
+        }
+      </style>
+      <div class="back">
+        <div class="homenav d-flex flex-wrap justify-content-between align-items-center py-3" 
+        style="background-image: url('/CIS-290-Project/media/clipped.png'); background-position: top right; background-repeat: no-repeat; background-color: white;">
+          <img src="media/logo.png" alt="logo" style="height: 50px; width: 200px;">
+          <ul class="nav">
+            <li style="margin-right: 100px;"><a href="index.html" class="nav-link" style="color: white; text-decoration: none; font-size: large; font-weight: 600;">HOME</a></li>
+            <li style="margin-right: 100px;"><a href="about.html" class="nav-link" style="color: white; text-decoration: none; font-size: large; font-weight: 600;">ABOUT</a></li>
+            <li style="margin-right: 100px;"><a href="contact.html" class="nav-link" style="color: white; text-decoration: none; font-size: large; font-weight: 600;">CONTACT US</a></li>
+            <li><button type="button" class="btn"><a href="php/logout.php" style="text-decoration: none; color: black; margin-left: 50px; margin-right: 20px;">Logout</a></button></li>
+          </ul>
+        </div>
+      </div>
     </header>
 
-    <main>
-        <h1>this is index page</h1>
-        <br>
+    <main style="background-color: #f5f5f5;">
+      <section class="container-fluid">
 
-        <!--doesnt fuckuing workdorgn;rbdls.gkbs might remove-->
-        hello <?php echo isset($user_data['User_Email']) ? $user_data['User_Email'] : ''; ?>
+        <div class="row mb-3 g-4 text-center" style="margin-left: 50px; margin-right: 50px;">
+          <div class="rounded-4 col-3 themed-grid-col text-center" style="background-color: white; margin-right: 50px;">
+            <h5 class="text-start" for="district-select" style="margin-top: 25px; margin-left: 25px;">Choose the District:</h5>
+            <select class="form-control" id="district-select">
+              <option value="">All &darr;</option>
+              <option value="Corozal">Corozal District</option>
+              <option value="Orange Walk">Orange Walk District</option>
+              <option value="Cayo">Cayo District</option>
+              <option value="Stann Creek">Stann Creek District</option>
+              <option value="Toledo">Toledo District</option>
+            </select>
+
+            <h5 class="text-start" style="margin-top: 25px; margin-left: 25px;">Livestock Type:</h5>
+            <form class="form" style="margin-left: 25px;">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="livestock" value="option1" checked>
+                <label class="form-check-label d-flex align-items-center" name="livestock">
+                  Cow
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="livestock" value="option2">
+                <label class="form-check-label d-flex align-items-center" name="livestock">
+                  Pig
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="livestock" value="option3">
+                <label class="form-check-label d-flex align-items-center" name="livestock">
+                  Chicken
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="livestock" value="option4">
+                <label class="form-check-label d-flex align-items-center" name="livestock">
+                  Sheep
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="livestock" value="option5">
+                <label class="form-check-label d-flex align-items-center" name="livestock">
+                  Goat
+                </label>
+              </div>
+            </form>
+
+            <h5 class="text-start" style="margin-top: 25px; margin-left: 25px;">Livestock Gender:</h5>
+            <form class="form" style="margin-left: 25px;">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" value="option1" checked>
+                <label class="form-check-label d-flex align-items-center" name="gender">
+                  Females
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" value="option2">
+                <label class="form-check-label d-flex align-items-center" name="gender">
+                  Males
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="gender" value="option3">
+                <label class="form-check-label d-flex align-items-center" name="gender">
+                  Female and Male
+                </label>
+              </div>
+            </form>
+
+            <h5 class="text-start" style="margin-top: 25px; margin-left: 25px;">Livestock Status:</h5>
+            <form class="form" style="margin-left: 25px;">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="status" value="option1" checked>
+                <label class="form-check-label d-flex align-items-center" name="status">
+                  Pregnant
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="status" value="option2">
+                <label class="form-check-label d-flex align-items-center" name="status">
+                  Not Pregnant
+                </label>
+              </div>
+            </form>
+
+            
+          </div>
+
+          <div class="rounded-4 col-8 themed-grid-col" style="background-color: white;">
+            feed display
+          </div>
+        </div>
+      </section>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+
     </main>
 
     <script src="js/bootstrap.bundle.js"> </script>
