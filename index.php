@@ -20,7 +20,13 @@ if (!empty($animal)) {
 
 $sql .= " ORDER BY Cost " . ($price === 'asc' ? 'ASC' : 'DESC');
 
+mysqli_prepare($con, $sql);
+
+
 $result = mysqli_query($con, $sql);
+
+$feed = mysqli_fetch_assoc($result);
+$feedid = $feed['FeedID'];
 
 ?>
 
@@ -93,7 +99,7 @@ $result = mysqli_query($con, $sql);
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
-                    <h5 class="card-title">' . '<a href="feed.php?feedID=' . $row['$FeedID'] . '">' . $row['FeedName'] . '</a> </h5>
+                    <h5 class="card-title">' . '<a  style="text-decoration: none;" href="feed.php?FeedID=' . $feedid . '">' . $row['FeedName'] . '</a> </h5>
                     <p class="card-text">Manufacturer: ' . $row['Manufacturer'] . 
                       '<br>Cost: $' . $row['Cost'] . 
                       '<br>Weight per bag: ' . $row['WeightPerBag'] . 
