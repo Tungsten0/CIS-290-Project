@@ -149,7 +149,7 @@ if(isset($_POST['number']) && isset($_POST['months']) && isset($_POST['FeedID'])
   $_SESSION['totalbags'] = $totalbags;
   $_SESSION['totalprice'] = $totalprice;
 
-  header("Location: ../feed.php?FeedID=".$feed_id);
+  header("Location: ../feed.php?FeedID=". $feed_id);
 
   // echo $_SESSION['totalbags'];
   // echo $_SESSION['totalprice'];

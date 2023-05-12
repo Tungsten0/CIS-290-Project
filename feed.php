@@ -6,7 +6,7 @@ if (isset($_GET['FeedID'])) {
   $FeedID = $_GET['FeedID']; 
   
   $stmt = mysqli_prepare($con, 
-  "SELECT FeedName, Manufacturer, AnimalType, AnimalStatus, Price, WeightPerBag, District, Address
+  "SELECT FeedName, Manufacturer, AnimalType, AnimalStatus, Price, WeightPerBag, District, Address, ProductCover
   FROM feeds
   WHERE FeedID = ?");
     
@@ -23,6 +23,7 @@ if (isset($_GET['FeedID'])) {
   $weight = $result['WeightPerBag'];
   $district = $result['District'];
   $address = $result['Address'];
+  $picture = $result['ProductCover'];
   
   if($result == null) {
     header("Location: error.php?error=noresult");
@@ -47,7 +48,7 @@ if (isset($_GET['FeedID'])) {
 <div class="container text-center" style="margin-top: 10px; margin-bottom: 10px;">
   <div class="row g-0">
     <div class="col-md-4">
-      <img alt="feed bag image" style="height: 300px; width: 200px;">
+      <img src="<?php echo $picture; ?>" alt="feed bag image" style="height: 500px; width: 500px;">
     </div>
     <div class="col-md-8">
 
