@@ -1,39 +1,49 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Login AgriTech</title>
-        <link rel="stylesheet" href="styles/login-register.css">
-    </head>
-    <body>
-        <header>
+  <head>
+    <title>Login AgriTech</title>
+    <link rel="stylesheet" href="styles/login-register.css">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 
-        </header>
-        
-        <main>
-            <section>
-                <div class="form-box">
-                    <div class="form-value">
-                        <form method="POST" action="php/login.php">
-                            <h2>AgriTech</h2>
-                            <h2>Login</h2>
-                            <div class="inputbox">
-                                <ion-icon name="mail-open-outline"></ion-icon>
-                                <input type="email" required placeholder="Email" name="User_Email">
-                            </div>
-                            <div class="inputbox">
-                                <ion-icon name="lock-closed-outline"></ion-icon>
-                                <input type="password" required placeholder="Password" name="User_Password">
-                            </div>
-                            <button>Login</button>
-                            <div class="smalltext">
-                                <p>No Account? <a href="register.html">Register here</a></p>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </section>
-        </main>
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    </body>
+  </head>
+  <body>
+    <header>
+
+    </header>
+    <main>
+      <section>
+        <div class="form-box">
+          <div class="form-value">
+            <form method="POST" action="php/login.php">
+              <h2>AgriTech</h2>
+              <h2>Login</h2>
+              <div class="inputbox">
+                <ion-icon name="mail-open-outline"></ion-icon>
+                <input type="email" required placeholder="Email" name="User_Email">
+              </div>
+              <div class="inputbox">
+                <ion-icon name="lock-closed-outline"></ion-icon>
+                <input type="password" required placeholder="Password" name="User_Password">
+              </div>
+              <button>Login</button>
+              <div style="z-index: 1; margin-left: 100px; margin-top: 20px;"><div class="g-signin2" data-onsuccess="onSignIn"></div></div>
+            <script>
+              gapi.load('auth2', function() {
+                gapi.auth2.init({
+                  client_id: 'YOUR_CLIENT_ID',
+                });
+              });
+            </script>
+              <div class="smalltext">
+                <p>No Account? <a href="register.html">Register here</a></p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
 </html>

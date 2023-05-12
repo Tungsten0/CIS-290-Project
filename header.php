@@ -6,37 +6,151 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-  <title>bullshit</title>
+  <title>AgriTech</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/bootstrap.css" />
-  <script src="js/bootstrap.bundle.js"> </script>
+  <script src="js/bootstrap.js"> </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <header>
-      <style>
-        .homenav {
-          position: fixed;
-          top: 0;
-          width: 100%;
-        }
-        .back {
-          background-image: url('/CIS-290-Project/media/background.png');
-          background-repeat: no-repeat;
-          background-position: top right;
-          height: 325px;
-        }
-      </style>
-      <div class="back">
-        <div class="homenav d-flex flex-wrap justify-content-between align-items-center py-3" 
-        style="background-image: url('/CIS-290-Project/media/clipped.png'); background-position: top right; background-repeat: no-repeat; background-color: white;">
-          <img src="media/logo.png" alt="logo" style="height: 50px; width: 200px;">
-          <ul class="nav">
-            <li style="margin-right: 100px;"><a href="index.php" class="nav-link" style="color: white; text-decoration: none; font-size: large; font-weight: 600;">HOME</a></li>
-            <li style="margin-right: 100px;"><a href="about.html" class="nav-link" style="color: white; text-decoration: none; font-size: large; font-weight: 600;">ABOUT</a></li>
-            <li style="margin-right: 100px;"><a href="contact.html" class="nav-link" style="color: white; text-decoration: none; font-size: large; font-weight: 600;">CONTACT US</a></li>
-            <li><button type="button" class="btn"><a href="php/logout.php" style="text-decoration: none; color: black; margin-left: 50px; margin-right: 20px;">Logout</a></button></li>
-          </ul>
+
+<header>
+<div class="container-fluid px-0">
+<nav class="navbar navbar-expand-sm navbar-dark bg-black py-0 px-0">
+    <a class="navbar-brand" href="../CIS-290-Project/index.php"><img id="logo" src="media/logo.png" style="height: 50px; width: 50px;"> &nbsp;&nbsp;&nbsp;AgriTech</a>
+    <span class="v-line"></span>
+    <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="feedlist.php">Feed List</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="about.php">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact.php">Contact Us</a>
+            </li>
+        </ul>
+        <div>
+          <form action="search.php" method="get">
+          <div class="container h-100">
+              <div class="d-flex justify-content-center h-100">
+                  <div class="searchbar">
+                      <input class="search_input" type="text" name="query" placeholder="Search...">
+                      <a href="search.php" class="search_icon"><i class="fas fa-search"></i></a>
+                  </div>
+              </div>
+          </div>
+          </form>
         </div>
-      </div>
-    </header>
+        <button type="button" class="btn btn-secondary" style="margin-right: 5px;"><a href="php/logout.php" style="text-decoration: none; color: white;">Logout</a></button>
+    </div>
+</nav>
+
+</div>
+
+<style>
+
+.bg-black {
+    background-color: #000;
+}
+
+#logo {
+    width: 90px;
+    height: 30px;
+    border-radius: 4px;
+}
+
+.navbar-brand {
+    padding: 14px 20px;
+    font-size: 16px;
+}
+
+.navbar-nav {
+    width: 100%;
+}
+
+.nav-item {
+    padding: 6px 14px;
+    text-align: center;
+}
+
+.nav-link {
+    padding-bottom: 10px; 
+}
+
+.v-line {
+    background-color: gray;
+    width: 1px;
+    height: 20px;
+}
+
+.navbar-collapse.collapse.in {
+    display: block !important;
+}
+
+@media (max-width: 576px) {
+    .nav-item {
+        width: 100%;
+        text-align: left;
+    }
+
+    .v-line {
+        display: none;
+    }
+}
+
+
+.searchbar {
+    margin-bottom: auto;
+    margin-top: auto;
+    height: 25px;
+    background-color: #353b48;
+    border-radius: 30px;
+    padding: 1px;
+}
+
+.search_input {
+    color: white;
+    border: 0;
+    outline: 0;
+    background: none;
+    width: 0;
+    caret-color: transparent;
+    line-height: 20px;
+    transition: width 0.4s linear;
+}
+
+.searchbar:hover>.search_input {
+    padding: 0 5px;
+    width: 450px;
+    caret-color: red;
+    transition: width 0.4s linear;
+}
+
+.searchbar:hover>.search_icon {
+    background: white;
+    color: #e74c3c;
+}
+
+.search_icon {
+    height: 20px;
+    width: 20px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    margin-top: -21px;
+}
+</style>
+
+
+</header>

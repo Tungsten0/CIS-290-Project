@@ -3,10 +3,10 @@
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
-$dbname = "agritech";
+$dbname = "agritech_db";
 
+$con = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 
-if (!$con = $con = new mysqli($dbhost, $dbuser, $dbpass, $dbname)) {
-    die("Connection failed: " . $con->connect_error);
-  }
-
+if(!$con) {
+    die("Connection failed: " . mysqli_connect_error());
+}
