@@ -10,7 +10,6 @@ $body = "Name: $name\nEmail: $email\nMessage: $message";
 // Send the email
 mail($to, $subject, $body);
 
-// Optionally, redirect the user to a thank-you page
-header("Location: thank_you.html");
+header("Location: index.php?msg=thankyou");
 exit();
 ?>

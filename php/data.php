@@ -1,5 +1,7 @@
 <?php
 
+//Minimum nutritional requirements for Livestock data for caluclations
+
 //Cows
 $cow_baby = array(
   "carbs" => 112,

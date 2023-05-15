@@ -121,26 +121,38 @@ $result = mysqli_query($con, $sql);
             </script>';
           } else {
             while ($feed = mysqli_fetch_assoc($result)) {
-              $feedid = $feed['FeedID'];
               echo '<div class="card text-start" style="margin-top: 10px; margin-bottom: 10px;">
                       <div class="row g-0">
                         <div class="col-md-4">
-                          <a style="text-decoration: none;" href="feed.php?FeedID=' . $feedid . '">
-                            <img src="' . $feed["ProductCover"] . '" alt="feed image" style="height: 300px; width: 300px;">
+                          <a style="text-decoration: none;" href="feed.php?FeedID=' . $feed['FeedID'] . '">
+                            <img src="' . $feed["ProductCover"] . '" alt="feed image" style="height: 275px; width: 275px;">
                           </a>
                         </div>
                         <div class="col-md-8">
-                          <div class="card-body">
-                            <h5 class="card-title">
-                              <a style="text-decoration: none;" href="feed.php?FeedID=' . $feedid . '">' . $feed['FeedName'] . '</a>
-                            </h5>
-                            <p class="card-text">
-                              Manufacturer: ' . $feed['Manufacturer'] . '<br>
-                              Price: $' . $feed['Price'] . '<br>
-                              Weight per bag: ' . $feed['WeightPerBag'] . 'kg<br>
-                              District: ' . $feed['District'] . '
-                            </p>
-                          </div>
+                          
+                            <div class="col">
+                              <div class="card-body">
+                                <h5 class="card-title">
+                                  <a style="text-decoration: none;" href="feed.php?FeedID=' . $feed['FeedID'] . '">' . $feed['FeedName'] . '</a>
+                                </h5>
+                                <p class="card-text">
+                                  <div class="row">
+                                    <div class="col">
+                                      Manufacturer: ' . $feed['Manufacturer'] . '<br>
+                                      Price: $' . $feed['Price'] . '<br>
+                                      Weight per bag: ' . $feed['WeightPerBag'] . 'kg<br>
+                                      Meant for: '  . $feed['AnimalStatus'] . ' livestock<br>
+                                      District: ' . $feed['District'] . '
+                                    </div>
+                                    <div class="col">
+                                      <p>' . $feed['Description'] . '</p>
+                                    </div>
+                                  </div>
+                                </p>
+                              </div>
+                            </div>
+                            
+                          
                         </div>
                       </div>
                     </div>';

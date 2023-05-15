@@ -1,7 +1,7 @@
 <?php
 session_start();
 require("connection.php");
-include("../data.php");
+include("data.php");
 
 $_SESSION['totalbags'] = 0;
 $_SESSION['totalprice'] = 0;

@@ -1,10 +1,10 @@
 <?php
 include "header.php";
-include "data.php";
 
 if (isset($_GET['FeedID'])) {
   $FeedID = $_GET['FeedID']; 
   
+  //sql to get info from feeds table to display on page
   $stmt = mysqli_prepare($con, 
   "SELECT FeedName, Manufacturer, AnimalType, AnimalStatus, Price, WeightPerBag, District, Address, ProductCover
   FROM feeds
@@ -29,6 +29,8 @@ if (isset($_GET['FeedID'])) {
   $address = $result['Address'];
   $picture = $result['ProductCover'];
   
+
+  //sql to get info from nutrition table to display on page
   $sql = mysqli_prepare($con, 
   "SELECT 
   Carbs, Protein, Fat, Calcium, Phosphorus, Magnesium, Microminerals, 
