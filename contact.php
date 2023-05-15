@@ -14,6 +14,7 @@ require "header.php";
   <h1 class="text-center" style="font-size: 50px;">Contact Us</h1>  
   <div class="row">
     <div class="col">
+      <!-- Google Maps API -->
       <div>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1902.4534765609246!2d-88.19845906650009!3d17.511954589246898!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f5c5850b68f448b%3A0xfbf80c53c7801587!2sSt%20John&#39;s%20College%20Junior%20College%20Weber%20Building!5e0!3m2!1sen!2sbz!4v1683854942783!5m2!1sen!2sbz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>

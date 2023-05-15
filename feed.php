@@ -15,6 +15,10 @@ if (isset($_GET['FeedID'])) {
   $data = mysqli_stmt_get_result($stmt);
   $result = mysqli_fetch_assoc($data);
   
+  if($result == null) {
+    header("Location: error.php?error=noresult");
+  }
+
   $name = $result['FeedName'];
   $manufac = $result['Manufacturer'];
   $type = $result['AnimalType'];
@@ -25,10 +29,6 @@ if (isset($_GET['FeedID'])) {
   $address = $result['Address'];
   $picture = $result['ProductCover'];
   
-  if($result == null) {
-    header("Location: error.php?error=noresult");
-  }
-
   $sql = mysqli_prepare($con, 
   "SELECT 
   Carbs, Protein, Fat, Calcium, Phosphorus, Magnesium, Microminerals, 
@@ -39,6 +39,10 @@ if (isset($_GET['FeedID'])) {
   mysqli_stmt_execute($sql);
   $data_nutrients = mysqli_stmt_get_result($sql);
   $nut = mysqli_fetch_assoc($data_nutrients);
+
+  if($nut == null) {
+    header("Location: error.php?error=noresult");
+  }
 
 } else {
   header("Location: error.php?error=feedidnotset");
@@ -89,9 +93,9 @@ if (isset($_GET['FeedID'])) {
         </div>
         <div class="col-md-6">
           <div class="card flex-column">
-            <div class="card-header" style="font-size: 30px;">Nutritional Info</div>
+            <div class="card-header" style="font-size: 25px;">Nutritional Info</div>
             <div class="card-body text-start">
-              <div>
+              <div style="padding: 20px;">
                 <span style="font-size: 19px;">
                   <?php 
                     foreach ($nut as $column_name => $data) {
@@ -103,7 +107,7 @@ if (isset($_GET['FeedID'])) {
             </div>
           </div>
           <div class="card flex-column" style="margin-top: 15px;">
-            <div class="card-header" style="font-size: 30px;">Calculation Results</div>
+            <div class="card-header" style="font-size: 25px;">Calculation Results</div>
             <div class="card-body text-start">
               <div style="padding: 20px;">
                 <span style="font-size: 20px;">

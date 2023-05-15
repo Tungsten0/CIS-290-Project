@@ -47,7 +47,7 @@ $result = mysqli_query($con, $sql);
 
 ?>
 
-<main style="background-color: #f5f5f5;">
+<main>
 
   <section class="container-fluid" style="padding: 50px;">
 

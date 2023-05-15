@@ -1,10 +1,10 @@
 <?php
 session_start();
 require("connection.php");
-
 include("../data.php");
 
-echo '<script>console.log("entered calculate script");</script>';
+$_SESSION['totalbags'] = 0;
+$_SESSION['totalprice'] = 0;
 
 if(isset($_POST['number']) && isset($_POST['months']) && isset($_POST['FeedID'])) {
   echo '<script>console.log("in if statement");</script>';
@@ -14,6 +14,12 @@ if(isset($_POST['number']) && isset($_POST['months']) && isset($_POST['FeedID'])
   // $weight = $_POST['weight'];
   $months = $_POST['months'];
 
+  $totalbags = 0;
+  $totalprice = 0;
+
+  if($_POST['number'] == null || $_POST['months'] == null || $_POST['number'] == 0 || $_POST['months'] == 0) {
+    header("Location: ../feed.php?FeedID=" . $feed_id);
+  }
 
   $stmt = mysqli_prepare($con, 
   "SELECT FeedName, Manufacturer, AnimalType, AnimalStatus, Price, WeightPerBag, District, Address
