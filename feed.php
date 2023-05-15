@@ -51,10 +51,10 @@ if (isset($_GET['FeedID'])) {
 ?>
 <div class="container text-center" style="margin-top: 10px; margin-bottom: 10px;">
   <div class="row g-0">
-    <div class="col-md-4">
-      <img src="<?php echo $picture; ?>" alt="feed bag image" style="height: 500px; width: 500px;">
+    <div class="col-md-5">
+      <img src="<?php echo $picture; ?>" alt="feed bag image" style="height: 500px; width: 500px; margin-top: 20%;">
     </div>
-    <div class="col-md-8">
+    <div class="col-md-7">
 
       <div class="row d-flex flex-row">
         <div class="col-md-6">

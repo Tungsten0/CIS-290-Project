@@ -125,7 +125,9 @@ $result = mysqli_query($con, $sql);
               echo '<div class="card text-start" style="margin-top: 10px; margin-bottom: 10px;">
                       <div class="row g-0">
                         <div class="col-md-4">
-                          <img src="' . $feed['ProductCover'] . '" alt="feed image" style="height: 300px; width: 300px;">
+                          <a style="text-decoration: none;" href="feed.php?FeedID=' . $feedid . '">
+                            <img src="' . $feed["ProductCover"] . '" alt="feed image" style="height: 300px; width: 300px;">
+                          </a>
                         </div>
                         <div class="col-md-8">
                           <div class="card-body">

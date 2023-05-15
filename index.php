@@ -1,8 +1,3 @@
-<?php
-  include "php/connection.php";
-  include "php/functions.php";
-  
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +32,7 @@
         <li style="margin-right: 100px;"><a href="index.php" class="nav-link" style="color: white; text-decoration: none; font-size: large; font-weight: 600;">HOME</a></li>
         <li style="margin-right: 100px;"><a href="about.php" class="nav-link" style="color: white; text-decoration: none; font-size: large; font-weight: 600;">ABOUT</a></li>
         <li style="margin-right: 100px;"><a href="contact.php" class="nav-link" style="color: white; text-decoration: none; font-size: large; font-weight: 600;">CONTACT US</a></li>
-        <li><button type="button" class="btn"><a href="php/logout.php" style="text-decoration: none; color: black; margin-left: 50px; margin-right: 20px;">Logout</a></button></li>
+        <li><button type="button" class="btn btn-secondary" style="margin-left: 50px; margin-right: 20px;"><a href="php/logout.php" style="text-decoration: none; color: white;">Logout</a></button></li>
       </ul>
     </div>
   </div>

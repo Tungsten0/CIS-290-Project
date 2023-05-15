@@ -21,6 +21,7 @@ if(isset($_POST['number']) && isset($_POST['months']) && isset($_POST['FeedID'])
     header("Location: ../feed.php?FeedID=" . $feed_id);
   }
 
+  //sql for getting info from feeds table
   $stmt = mysqli_prepare($con, 
   "SELECT FeedName, Manufacturer, AnimalType, AnimalStatus, Price, WeightPerBag, District, Address
   FROM feeds
@@ -37,6 +38,8 @@ if(isset($_POST['number']) && isset($_POST['months']) && isset($_POST['FeedID'])
   $price = $result['Price'];
   $weight = $result['WeightPerBag'];
 
+
+  //sql for getting info from nutrition table for calculations
   $sql = mysqli_prepare($con, 
   "SELECT 
   Carbs, Protein, Fat, Calcium, Phosphorus, Magnesium, Microminerals, 
@@ -48,12 +51,15 @@ if(isset($_POST['number']) && isset($_POST['months']) && isset($_POST['FeedID'])
   $data_nutrients = mysqli_stmt_get_result($sql);
   $nut = mysqli_fetch_assoc($data_nutrients);
 
+
+  //combine minerals and vitamins for total
   $total_minerals = $nut['Calcium'] + $nut['Phosphorus'] + $nut['Magnesium']  + $nut['Microminerals'];
   $total_vitamins = $nut['VitaminA'] + $nut['VitaminD'] + $nut['VitaminE']  + $nut['VitaminK'] + $nut['VitaminBComplex'];
 
   $feedper = 0;
   //in kg and the assigned should be sufficient per day
 
+  //switch case to assign feedper the amount of kg depending on animal type and status
   switch($type) {
     case "Cow":
        if ($status == "Baby") {
@@ -147,6 +153,7 @@ if(isset($_POST['number']) && isset($_POST['months']) && isset($_POST['FeedID'])
     
   }
 
+  //final calculations calculating total weight, total bags of feed, and total price
   $subtotal = $weight/($feedper * $number);
 
   $totalbags = (30 * $months)/$subtotal;
@@ -157,6 +164,9 @@ if(isset($_POST['number']) && isset($_POST['months']) && isset($_POST['FeedID'])
 
   header("Location: ../feed.php?FeedID=". $feed_id);
 
+
+  //debugging info
+  
   // echo $_SESSION['totalbags'];
   // echo $_SESSION['totalprice'];
   
